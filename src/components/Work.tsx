@@ -9,28 +9,30 @@ const projects = [
     title: "Plum Insurance",
     category: "Product Management | Live Project",
     tools: "Python, n8n workflow orchestration",
-    image: "/images/Solidx.png",
+    image: "/images/TAT.png",
     bullets: [
       "Built automated CD reconciliation for 200+ enterprise accounts using Python and n8n workflow orchestration.",
       "Protected ₹10 Cr annual revenue by designing a scalable reconciliation pipeline and collaborating cross-functionally.",
       "Improved discrepancy detection accuracy, projecting 60–70% manual effort reduction by designing rule-based logic."
     ],
     links: [
-      { name: "Portfolio Website", url: "https://www.linkedin.com/in/arya-sheth1/" }
+      { name: "AI Dashboard", url: "https://endorsement-monitor.replit.app/" },
+      { name: "n8n Workflow", url: "https://www.linkedin.com/in/arya-sheth1/" }
     ]
   },
   {
     title: "Finshell Pay",
     category: "Product Management | Live Project",
     tools: "Figma MVP, Notion AI, multi-LLM research",
-    image: "/images/radix.png",
+    image: "/images/finshell.png",
     bullets: [
       "Designed a video-learning Figma MVP, post-analysing 90+ interviews to identify behavioural patterns.",
       "Projected 50-60% DAU growth and 5% cvr uplift by mapping customer journey and redesigning onboarding flow.",
       "Projected 30–40% increase in session time using combined multi-LLM research and user insight synthesis."
     ],
     links: [
-      { name: "View Insight", url: "#" }
+      { name: "App Prototype", url: "https://www.figma.com/make/wc0wafMfThuNCBhMRu3MW6/Finshell-Pay-App?t=6GdAdPFIC7fFtrlz-0&fullscreen=1" },
+      { name: "Onboarding Flow", url: "https://global-clap-02140672.figma.site/" }
     ]
   },
   {
@@ -52,27 +54,27 @@ const projects = [
     title: "D2C RTO Reduction",
     category: "AI Solutions Architect | Product Artefact",
     tools: "Claude Skills, n8n, Vercel AI, WhatsApp API",
-    image: "/images/sapphire.png",
+    image: "/images/souled.png",
     bullets: [
       "Designed an RTO reduction tool targeting 500+ D2C brands losing 30-40% COD orders.",
       "Uncovered delivery and impulse cancellation pain points through 20+ user interviews.",
       "Projected 12–18% RTO reduction by building an AI risk-scoring verification workflow."
     ],
     links: [
-      { name: "Vercel AI Prototype", url: "#" }
+      { name: "AI Prototype", url: "https://933tp3.csb.app/" }
     ]
   },
   {
     title: "AI Expense Tracker",
     category: "AI Solutions Architect | Full Stack Development",
     tools: "Claude code, Python, automated categorisation",
-    image: "/images/Maxlife.png",
+    image: "/images/expense.png",
     bullets: [
       "Built an AI-powered expense dashboard auto-categorising bank transactions across 5+ categories.",
       "Reduced manual expense analysis 80% by designing rule-based transaction parsing."
     ],
     links: [
-      { name: "Full Stack App", url: "#" }
+      { name: "Full Stack App", url: "https://expense-tracker-server--aryasheth513684.replit.app/" }
     ]
   },
 ];
@@ -146,7 +148,7 @@ const Work = () => {
                         <h3>0{index + 1}</h3>
                       </div>
                       <div className="carousel-details">
-                        <h4 
+                        <h4
                           onClick={() => setSelectedProject(project)}
                           style={{ cursor: 'pointer', transition: '0.3s' }}
                           className="project-title-link"
@@ -165,10 +167,10 @@ const Work = () => {
                         {project.links && project.links.length > 0 && (
                           <div className="card-links">
                             {project.links.map((link, lIndex) => (
-                              <a 
-                                key={lIndex} 
-                                href={link.url} 
-                                target="_blank" 
+                              <a
+                                key={lIndex}
+                                href={link.url}
+                                target="_blank"
                                 className="card-link"
                                 data-cursor="disable"
                               >
@@ -179,7 +181,7 @@ const Work = () => {
                         )}
                       </div>
                     </div>
-                    <div 
+                    <div
                       className="carousel-image-wrapper"
                       onClick={() => setSelectedProject(project)}
                       style={{ cursor: 'pointer' }}
@@ -207,31 +209,31 @@ const Work = () => {
           </div>
         </div>
         {/* Project Detail Modal */}
-      {selectedProject && createPortal(
-        <div className="project-modal-overlay active" onClick={() => setSelectedProject(null)}>
-          <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-modal" onClick={() => setSelectedProject(null)}>
-              <MdClose />
-            </button>
-            <h3>{selectedProject.title}</h3>
-            <p className="modal-category">{selectedProject.category}</p>
-            <p><strong>Tools:</strong> {selectedProject.tools}</p>
-            <ul>
-              {selectedProject.bullets.map((bullet, i) => (
-                <li key={i}>{bullet}</li>
-              ))}
-            </ul>
-            <div className="project-links">
-              {selectedProject.links.map((link, i) => (
-                <a key={i} href={link.url} target="_blank" className="project-link-btn">
-                  {link.name}
-                </a>
-              ))}
+        {selectedProject && createPortal(
+          <div className="project-modal-overlay active" onClick={() => setSelectedProject(null)}>
+            <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="close-modal" onClick={() => setSelectedProject(null)}>
+                <MdClose />
+              </button>
+              <h3>{selectedProject.title}</h3>
+              <p className="modal-category">{selectedProject.category}</p>
+              <p><strong>Tools:</strong> {selectedProject.tools}</p>
+              <ul>
+                {selectedProject.bullets.map((bullet, i) => (
+                  <li key={i}>{bullet}</li>
+                ))}
+              </ul>
+              <div className="project-links">
+                {selectedProject.links.map((link, i) => (
+                  <a key={i} href={link.url} target="_blank" className="project-link-btn">
+                    {link.name}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>,
-        document.body
-      )}
+          </div>,
+          document.body
+        )}
       </div>
     </div>
   );
