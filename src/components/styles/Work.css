@@ -52,13 +52,20 @@
   align-items: center;
   gap: 60px;
   width: 100%;
+  overflow: hidden;
+  /* 👈 add this */
+
 }
 
 .carousel-info {
-  flex: 1;
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
+  flex: 0 0 50%;
+  min-width: 0;
+  /* 👈 IMPORTANT */
+}
+
+.carousel-image-wrapper {
+  flex: 0 0 50%;
+  min-width: 0;
 }
 
 .carousel-number h3 {

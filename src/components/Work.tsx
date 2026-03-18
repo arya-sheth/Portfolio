@@ -24,7 +24,7 @@ const projects = [
     title: "Finshell Pay",
     category: "Product Management | Live Project",
     tools: "Figma MVP, Notion AI, multi-LLM research",
-    image: "/images/finshell.png",
+    image: "/images/Finshell.png",
     bullets: [
       "Designed a video-learning Figma MVP, post-analysing 90+ interviews to identify behavioural patterns.",
       "Projected 50-60% DAU growth and 5% cvr uplift by mapping customer journey and redesigning onboarding flow.",
@@ -54,7 +54,7 @@ const projects = [
     title: "D2C RTO Reduction",
     category: "AI Solutions Architect | Product Artefact",
     tools: "Claude Skills, n8n, Vercel AI, WhatsApp API",
-    image: "/images/souled.png",
+    image: "/images/Souled.png",
     bullets: [
       "Designed an RTO reduction tool targeting 500+ D2C brands losing 30-40% COD orders.",
       "Uncovered delivery and impulse cancellation pain points through 20+ user interviews.",
