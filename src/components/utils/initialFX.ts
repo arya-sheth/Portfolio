@@ -1,16 +1,22 @@
-import { SplitText } from "gsap/SplitText";
+import { SplitText } from "./splitTextFallback";
 import gsap from "gsap";
 import { smoother } from "../Navbar";
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
-  smoother.paused(false);
-  document.getElementsByTagName("main")[0].classList.add("main-active");
+  if (smoother && typeof smoother.paused === "function") {
+    smoother.paused(false);
+  }
+  const mainElement = document.getElementsByTagName("main")[0];
+  if (mainElement) {
+    mainElement.classList.add("main-active");
+  }
   gsap.to("body", {
     backgroundColor: "#0a0e17",
     duration: 0.5,
     delay: 1,
   });
+
 
   var landingText = new SplitText(
     [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
