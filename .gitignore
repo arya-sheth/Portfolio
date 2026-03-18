@@ -26,7 +26,3 @@ dist-ssr
 
 backup/
 .env
-
-public/models/*.glb
-public/models/*.enc
-public/models/*.hdr
