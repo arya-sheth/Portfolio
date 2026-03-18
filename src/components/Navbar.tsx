@@ -9,6 +9,13 @@ gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
 
 const Navbar = () => {
+  const handleScroll = (target: string) => {
+    if (smoother && typeof smoother.scrollTo === "function") {
+      smoother.scrollTo(target, true, "top top");
+    } else {
+      document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   useEffect(() => {
     // ScrollSmoother is a premium plugin. If it's missing, standard scrolling will be used.
     if ((gsap as any).plugins && (gsap as any).plugins.ScrollSmoother) {
@@ -24,27 +31,13 @@ const Navbar = () => {
 
       if (smoother) {
         smoother.scrollTop(0);
-        smoother.paused(true);
       }
     }
 
-    let links = document.querySelectorAll(".header ul a");
-    links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          if (smoother && typeof smoother.scrollTo === "function") {
-            smoother.scrollTo(section, true, "top top");
-          }
-        }
-      });
-    });
+
     window.addEventListener("resize", () => {
       if (smoother && typeof (smoother as any).refresh === "function") {
-          (smoother as any).refresh(true);
+        (smoother as any).refresh(true);
       }
     });
   }, []);
