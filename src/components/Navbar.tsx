@@ -56,17 +56,17 @@ const Navbar = () => {
         </a>
         <ul>
           <li>
-            <a data-href="#about" href="#about">
+            <a onClick={() => handleScroll("#about")}>
               <HoverLinks text="ABOUT" />
             </a>
           </li>
           <li>
-            <a data-href="#work" href="#work">
+            <a onClick={() => handleScroll("#work")}>
               <HoverLinks text="WORK" />
             </a>
           </li>
           <li>
-            <a data-href="#contact" href="#contact">
+            <a onClick={() => handleScroll("#contact")}>
               <HoverLinks text="CONTACT" />
             </a>
           </li>
